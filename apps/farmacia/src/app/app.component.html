@@ -1,0 +1,8 @@
+<ventas-header></ventas-header>
+<h1>Ventas de Productos</h1>
+<ul>
+  <li *ngFor="let item of items">
+    <span>{{item.brand}} ({{item.variant}}) </span>
+    <span class="price">S/ {{item.price}}</span>
+  </li>
+</ul>

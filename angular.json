@@ -1,0 +1,299 @@
+{
+  "version": 1,
+  "projects": {
+    "farmacia": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/farmacia",
+      "sourceRoot": "apps/farmacia/src",
+      "prefix": "ventas",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/farmacia",
+            "index": "apps/farmacia/src/index.html",
+            "main": "apps/farmacia/src/main.ts",
+            "polyfills": "apps/farmacia/src/polyfills.ts",
+            "tsConfig": "apps/farmacia/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/farmacia/src/favicon.ico",
+              "apps/farmacia/src/assets"
+            ],
+            "styles": ["apps/farmacia/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/farmacia/src/environments/environment.ts",
+                  "with": "apps/farmacia/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "farmacia:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "farmacia:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "farmacia:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/farmacia/tsconfig.app.json",
+              "apps/farmacia/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/farmacia/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/farmacia/jest.config.js",
+            "tsConfig": "apps/farmacia/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/farmacia/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "farmacia-e2e": {
+      "root": "apps/farmacia-e2e",
+      "sourceRoot": "apps/farmacia-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/farmacia-e2e/cypress.json",
+            "tsConfig": "apps/farmacia-e2e/tsconfig.e2e.json",
+            "devServerTarget": "farmacia:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "farmacia:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/farmacia-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/farmacia-e2e/**"]
+          }
+        }
+      }
+    },
+    "shared-components": {
+      "projectType": "library",
+      "root": "libs/shared/components",
+      "sourceRoot": "libs/shared/components/src",
+      "prefix": "ventas",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/components/tsconfig.lib.json",
+              "libs/shared/components/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/components/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/components/jest.config.js",
+            "tsConfig": "libs/shared/components/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/shared/components/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "bicicletas": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/bicicletas",
+      "sourceRoot": "apps/bicicletas/src",
+      "prefix": "ventas",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/bicicletas",
+            "index": "apps/bicicletas/src/index.html",
+            "main": "apps/bicicletas/src/main.ts",
+            "polyfills": "apps/bicicletas/src/polyfills.ts",
+            "tsConfig": "apps/bicicletas/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/bicicletas/src/favicon.ico",
+              "apps/bicicletas/src/assets"
+            ],
+            "styles": ["apps/bicicletas/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/bicicletas/src/environments/environment.ts",
+                  "with": "apps/bicicletas/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "bicicletas:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "bicicletas:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "bicicletas:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/bicicletas/tsconfig.app.json",
+              "apps/bicicletas/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/bicicletas/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/bicicletas/src/test.ts",
+            "tsConfig": "apps/bicicletas/tsconfig.spec.json",
+            "karmaConfig": "apps/bicicletas/karma.conf.js",
+            "polyfills": "apps/bicicletas/src/polyfills.ts",
+            "styles": [],
+            "scripts": [],
+            "assets": []
+          }
+        }
+      }
+    },
+    "bicicletas-e2e": {
+      "root": "apps/bicicletas-e2e",
+      "sourceRoot": "apps/bicicletas-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/bicicletas-e2e/cypress.json",
+            "tsConfig": "apps/bicicletas-e2e/tsconfig.e2e.json",
+            "devServerTarget": "bicicletas:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "bicicletas:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/bicicletas-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/bicicletas-e2e/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "farmacia"
+}

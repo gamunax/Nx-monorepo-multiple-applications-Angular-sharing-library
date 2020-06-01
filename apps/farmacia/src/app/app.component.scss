@@ -1,0 +1,19 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+ul {
+  list-style: none;
+  li {
+    border-bottom: 3px solid black;
+    display: flex;
+    span {
+      flex: 1 0 auto;
+      &.price {
+        text-align: right;
+        color: green;
+        font-weight: bold;
+      }
+    }
+  }
+}
